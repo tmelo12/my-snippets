@@ -1,0 +1,23 @@
+{
+    // Place your new_version_core workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+    // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+    // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+    // used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+    // Placeholders with the same ids are connected.
+    // Example:
+    // "Print to console": {
+    // 	"scope": "javascript,typescript",
+    // 	"prefix": "log",
+    // 	"body": [
+    // 		"console.log('$1');",
+    // 		"$2"
+    // 	],
+    // 	"description": "Log output to console"
+    // }
+    "modelsquelize": {
+        "prefix": "mdsql",
+        "body": "import { Model } from 'sequelize';\n\nexport interface ModelNameProps {\n\tid: string;\n}\n\nmodule.exports = (sequelize: any, DataTypes: any) => {\n\tclass ModelName extends Model<ModelNameProps> implements ModelNameProps {\n\t\tid:string;\n\t\tstatic associate(models: any){ \n\t\t\t//associate here\n\t\t}\n\t}\n\n\tModelName.init(\n\t\t{\n\t\t\tid:{\n\t\t\t\ttype:DataTypes.UUID,\n\t\t\t\tallowNull: false,\n\t\t\t\tdefaultValue: DataTypes.UUIDV1,\n\t\t\t\tprimaryKey: true,\n\t\t\t\tfield: 'model_id'\n\t\t\t},\n\t\t},\n\t\t{\n\t\t\tsequelize,\n\t\t\tmodelName: 'ModelName',\n\t\t\tparanoid: true,\n\t\t\tdeletedAt: 'deletedAt',\n\t\t\ttimestamps: true,\n\t\t\tunderscored: true,\n\t\t\ttableName: 'TableName'\n\t\t}\n\t);\n\treturn ModelName;\n};",
+        "description": ""
+    }
+}
